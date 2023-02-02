@@ -4,6 +4,8 @@
     </IfModule>
 
     RewriteEngine On
+    RewriteBase /
+    RewriteRule ^index\.html?$ / [NC,R,L]
 
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
@@ -34,7 +36,3 @@ Deny from all
     Deny from all
 </Files>
 
-RewriteEngine on
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ /index.php?path=$1 [NC,L,QSA]
